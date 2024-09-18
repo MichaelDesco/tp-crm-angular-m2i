@@ -9,18 +9,13 @@ import { StatusClient } from '../../core/enums/status-client.enum';
   providedIn: 'root',
 })
 export class ClientsService {
-  private collection$!: Observable<Client[]>;
   private urlApi = environment.urlApi;
-  constructor(private http: HttpClient) {
-    this.collection$ = this.http.get<Client[]>(`${this.urlApi}/clients`);
-  }
 
-  public get collection(): Observable<Client[]> {
-    return this.collection$;
-  }
+  constructor(private http: HttpClient) {}
 
-  public set collection(col: Observable<Client[]>) {
-    this.collection$ = col;
+  // Méthode pour récupérer tous les clients
+  public getClients(): Observable<Client[]> {
+    return this.http.get<Client[]>(`${this.urlApi}/clients`);
   }
 
   public changeStatus(item: Client, status: StatusClient): Observable<Client> {

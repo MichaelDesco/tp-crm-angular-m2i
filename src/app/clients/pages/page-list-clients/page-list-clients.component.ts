@@ -16,7 +16,7 @@ export class PageListClientsComponent {
   status = Object.values(StatusClient);
 
   constructor(private clientsService: ClientsService) {
-    this.clientsService.collection.subscribe((clients) => {
+    this.clientsService.getClients().subscribe((clients) => {
       this.collection = clients;
     });
   }

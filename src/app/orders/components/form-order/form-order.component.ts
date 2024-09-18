@@ -8,6 +8,8 @@ import {
 import { StatusOrder } from '../../../core/enums/status-order.enum';
 import { Order } from '../../../core/models/order';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientsService } from '../../../clients/services/clients.service';
+import { Client } from '../../../core/models/client';
 
 @Component({
   selector: 'app-form-order',
@@ -20,13 +22,26 @@ export class FormOrderComponent {
   @Output() submitted = new EventEmitter<Order>();
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  clients: Client[] = []; // Liste des clients
+
+  constructor(
+    private fb: FormBuilder,
+    private clientsService: ClientsService
+  ) {}
 
   // Utiliser ngOnChanges pour détecter les changements dans @Input()
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['init'] && changes['init'].currentValue) {
       this.initializeForm(changes['init'].currentValue); // Initialiser le formulaire avec les nouvelles données
     }
+  }
+
+  ngOnInit(): void {
+    // Récupérer la liste des clients via le service lors de l'initialisation
+    this.clientsService.getClients().subscribe((clients) => {
+      this.clients = clients;
+      console.log(this.clients);
+    });
   }
 
   // Méthode pour initialiser le formulaire avec des valeurs
@@ -36,14 +51,7 @@ export class FormOrderComponent {
       nbJours: [order.nbJours],
       tva: [order.tva],
       state: [order.state],
-      client: [
-        order.client,
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(20),
-        ],
-      ],
+      client: [order.client, [Validators.required]],
       comment: [order.comment],
       typePresta: [order.typePresta, Validators.required],
       id: [order.id],
@@ -51,6 +59,8 @@ export class FormOrderComponent {
   }
 
   submit() {
-    this.submitted.emit(this.form.value);
+    if (this.form.valid) {
+      this.submitted.emit(this.form.value);
+    }
   }
 }

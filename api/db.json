@@ -99,6 +99,16 @@
       "comment": "inviter Francois pas damien",
       "typePresta": "Fiesta",
       "id": 10
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "OPTION",
+      "client": "Capgemini",
+      "comment": null,
+      "typePresta": "formation",
+      "id": 11
     }
   ],
   "clients": [

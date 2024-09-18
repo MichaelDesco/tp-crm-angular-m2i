@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
 import { Order } from '../../../core/models/order';
+import { ClientsService } from '../../../clients/services/clients.service';
 
 @Component({
   selector: 'app-page-edit-orders',
@@ -15,7 +16,8 @@ export class PageEditOrdersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private clientsService: ClientsService
   ) {}
 
   ngOnInit(): void {
@@ -37,4 +39,5 @@ export class PageEditOrdersComponent implements OnInit {
       this.router.navigate(['/orders']);
     });
   }
+
 }

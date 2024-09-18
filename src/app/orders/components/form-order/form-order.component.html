@@ -7,22 +7,24 @@
       class="form-control"
       id="typePresta"
     />
-    @if (form.controls['typePresta'].invalid && form.controls['typePresta'].touched) {
-    <div class="alert alert-danger">Champ invalide</div>
-    }
-  </div>
+    <div *ngIf="form.controls['typePresta'].invalid && form.controls['typePresta'].touched" class="alert alert-danger">
+      Champ invalide
+    </div>
+  </div> <!-- Ferme correctement cette div -->
 
   <div class="form-group">
-    <label for="client">client</label>
-    <input
-      formControlName="client"
-      type="text"
-      class="form-control"
-      id="client"
-    />
-    @if (form.controls['client'].invalid && form.controls['client'].touched) {
-    <div class="alert alert-danger">Le champ client est invalide.</div>
-    }
+    <label for="client">Client</label>
+    <select class="form-control" formControlName="client" id="client">
+      <option *ngFor="let client of clients" [value]="client.name">
+        {{ client.name }}
+      </option>
+    </select>
+    <div
+      class="alert alert-danger"
+      *ngIf="form.controls['client'].invalid && form.controls['client'].touched"
+    >
+      Sélectionnez un client
+    </div>
   </div>
 
   <div class="form-group">
