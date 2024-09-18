@@ -46,7 +46,7 @@ export class PageListClientsComponent {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
-      imageUrl: 'deleteOrder.jpeg', // chemin vers votre image
+      imageUrl: 'deleteClient.jpeg', // chemin vers votre image
       imageWidth: 300, // largeur de l'image
       imageHeight: 300, // hauteur de l'image
       imageAlt: 'Custom image', // texte alternatif pour l'image

@@ -19,7 +19,7 @@ export class PageAddClientComponent {
   handleSubmit(item: Client) {
     Swal.fire({
       title: 'Add Client?',
-      imageUrl: 'addOrder.jpeg',
+      imageUrl: 'addClient.jpeg',
       imageWidth: 300,
       imageHeight: 300,
       imageAlt: 'Custom image',
