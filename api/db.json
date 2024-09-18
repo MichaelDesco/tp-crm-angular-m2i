@@ -91,14 +91,14 @@
       "id": 9
     },
     {
+      "id": 10,
       "tjmHt": 1200,
       "nbJours": 4,
       "tva": 20,
-      "state": "OPTION",
-      "client": "Macumba",
-      "comment": "inviter Francois pas damien",
+      "state": "CANCELED",
       "typePresta": "Fiesta",
-      "id": 10
+      "client": "Macumba",
+      "comment": "inviter Francois pas damien"
     }
   ],
   "clients": [
