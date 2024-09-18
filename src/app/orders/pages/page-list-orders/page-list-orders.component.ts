@@ -44,14 +44,6 @@ export class PageListOrdersComponent {
     });
   }
 
-  // editClick(id: number, $event: any) {
-  //   $event.preventDefault(); // Empêche le comportement par défaut du lien
-  //   this.ordersService.getOrderById(id).subscribe((order) => {
-  //     // Passe les données de la commande à la page d'édition
-  //     this.router.navigate(['/orders/edit', id], { state: { order } });
-  //   });
-  // }
-
   deleteOrder(item: Order, $event: any) {
     $event.preventDefault(); // Empêche le comportement par défaut de l'icône
 

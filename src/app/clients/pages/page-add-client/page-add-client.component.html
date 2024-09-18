@@ -1,1 +1,6 @@
-<p>page-add-client works!</p>
+<app-template-container [title]="title">
+ <app-form-client
+    [init]="item"
+    (submitted)="handleSubmit($event)"
+  ></app-form-client>
+</app-template-container>
