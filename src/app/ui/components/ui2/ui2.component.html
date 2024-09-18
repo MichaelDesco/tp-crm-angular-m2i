@@ -1,0 +1,27 @@
+<div class="ui">
+  <header>
+    <span (click)="toggle()">
+      @if(!open){
+      <ng-content select=".tr-open"></ng-content>
+      }
+    </span>
+    <ng-content select=".tr-header"></ng-content>
+  </header>
+
+  <nav [ngClass]="{ 'close-aside': !open }">
+    <span (click)="toggle()">
+      @if(open){
+      <ng-content select=".tr-close"></ng-content>
+      }
+    </span>
+    <ng-content select=".tr-nav"></ng-content>
+  </nav>
+
+  <main>
+    <ng-content select=".tr-content"></ng-content>
+  </main>
+
+  <footer>
+    <ng-content select=".tr-footer"></ng-content>
+  </footer>
+</div>

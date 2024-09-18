@@ -1,0 +1,20 @@
+.container {
+  height: calc(100vh - 105px);
+  background-image: url("https://img.freepik.com/free-vector/warning-caution-tape-black-background_1017-25115.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn-primary {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.text-orange {
+  color: #fd7e14;
+}
+
+h2 {
+  font-size: 2rem;
+}
