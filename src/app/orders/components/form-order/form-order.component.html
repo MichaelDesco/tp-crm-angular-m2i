@@ -7,15 +7,9 @@
       class="form-control"
       id="typePresta"
     />
-    <div
-      class="alert alert-danger"
-      *ngIf="
-        form.controls['typePresta'].invalid &&
-        form.controls['typePresta'].touched
-      "
-    >
-      Champ invalide
-    </div>
+    @if (form.controls['typePresta'].invalid && form.controls['typePresta'].touched) {
+    <div class="alert alert-danger">Champ invalide</div>
+    }
   </div>
 
   <div class="form-group">
