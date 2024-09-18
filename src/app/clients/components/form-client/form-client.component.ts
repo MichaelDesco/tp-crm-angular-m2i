@@ -1,13 +1,14 @@
 import {
   Component,
   EventEmitter,
+  inject,
   Input,
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StatusClient } from '../../../core/enums/status-client.enum';
 import { Client } from '../../../core/models/client';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-client',
@@ -20,13 +21,17 @@ export class FormClientComponent {
   @Output() submitted = new EventEmitter<Client>();
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  private fb: FormBuilder = inject(FormBuilder);
 
   // Utiliser ngOnChanges pour détecter les changements dans @Input()
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['init'] && changes['init'].currentValue) {
       this.initializeForm(changes['init'].currentValue); // Initialiser le formulaire avec les nouvelles données
     }
+  }
+
+  ngOnInit() {
+    this.initializeForm(this.init);
   }
 
   // Méthode pour initialiser le formulaire avec des valeurs

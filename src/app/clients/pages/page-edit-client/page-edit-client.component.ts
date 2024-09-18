@@ -9,7 +9,7 @@ import { ClientsService } from '../../services/clients.service';
   styleUrl: './page-edit-client.component.scss',
 })
 export class PageEditClientComponent implements OnInit {
-  title: string = 'Edit Order';
+  title: string = 'Edit Client';
   item: Client = new Client();
 
   private clientsService: ClientsService = inject(ClientsService);

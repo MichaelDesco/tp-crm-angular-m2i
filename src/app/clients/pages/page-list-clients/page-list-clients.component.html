@@ -7,7 +7,7 @@
     <tr [attr.id]="'client-' + item.id">
       <td>
         <app-icon-edit
-          [routerLink]="['/clients/edit', item.id]"
+          [routerLink]="['/clients/edit/', item.id]"
         ></app-icon-edit>
         <app-icon-delete (click)="deleteClient(item, $event)"></app-icon-delete>
       </td>
