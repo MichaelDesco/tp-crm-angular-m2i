@@ -1,7 +1,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th *ngFor="let item of headers" scope="col">{{ item }}</th>
+      @for (item of headers; track item) {
+      <th scope="col">{{ item }}</th>
+      }
     </tr>
   </thead>
   <tbody>

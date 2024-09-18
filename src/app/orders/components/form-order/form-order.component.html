@@ -16,9 +16,11 @@
   <div class="form-group">
     <label for="client">client</label>
     <select class="form-control" formControlName="client" id="client">
-      <option *ngFor="let client of clients" [value]="client.name">
+      @for (client of clients; track client.name) {
+      <option [value]="client.name">
         {{ client.name }}
       </option>
+      }
     </select>
     @if (form.controls['client'].invalid && form.controls['client'].touched) {
     <div class="alert alert-danger">Champ invalide.</div>
@@ -53,7 +55,9 @@
   <div class="form-group">
     <label for="state">state</label>
     <select class="form-control" id="state" formControlName="state">
-      <option *ngFor="let state of status" [value]="state">{{ state }}</option>
+      @for (state of status; track state) {
+      <option [value]="state">{{ state }}</option>
+      }
     </select>
   </div>
 

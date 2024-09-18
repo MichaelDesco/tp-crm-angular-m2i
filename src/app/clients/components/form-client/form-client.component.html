@@ -2,8 +2,7 @@
   <div class="form-group">
     <label for="name">Name</label>
     <input formControlName="name" type="text" class="form-control" id="name" />
-    @if (form.controls['name'].invalid &&
-    form.controls['name'].touched) {
+    @if (form.controls['name'].invalid && form.controls['name'].touched) {
     <div class="alert alert-danger">Champ invalide.</div>
     }
   </div>
@@ -26,7 +25,9 @@
   <div class="form-group">
     <label for="state">state</label>
     <select class="form-control" id="state" formControlName="state">
-      <option *ngFor="let state of status" [value]="state">{{ state }}</option>
+      @for (state of status; track state) {
+      <option [value]="state">{{ state }}</option>
+      }
     </select>
   </div>
 
