@@ -33,9 +33,6 @@ export class PageListOrdersComponent {
   ngOnInit() {
     this.collection$ = this.ordersService.collection;
   }
-  // constructor(private ordersService: OrdersService) {
-  //   this.collection$ = this.ordersService.collection;
-  // }
 
   changeStatus(item: Order, $event: any) {
     const status = $event.target.value;

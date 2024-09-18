@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../../../core/models/client';
 import { ClientsService } from '../../services/clients.service';
-
 
 @Component({
   selector: 'app-page-edit-client',
   templateUrl: './page-edit-client.component.html',
   styleUrl: './page-edit-client.component.scss',
 })
-export class PageEditClientComponent {
+export class PageEditClientComponent implements OnInit {
   title: string = 'Edit Order';
   item: Client = new Client();
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private clientsService: ClientsService
-  ) {}
+  private clientsService: ClientsService = inject(ClientsService);
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
     // Récupérer l'ID de l'URL
@@ -31,12 +28,11 @@ export class PageEditClientComponent {
     }
   }
 
-  handleSubmit(order: Client): void {
+  handleSubmit(client: Client): void {
     // Appeler la méthode update pour mettre à jour l'ordre
-    this.clientsService.update(order).subscribe(() => {
+    this.clientsService.update(client).subscribe(() => {
       // Redirection vers la liste des commandes après la mise à jour
       this.router.navigate(['/clients']);
     });
   }
 }
-

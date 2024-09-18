@@ -16,8 +16,6 @@ export class PageAddOrdersComponent {
   private ordersService: OrdersService = inject(OrdersService);
   private router: Router = inject(Router);
 
-  // constructor(private ordersService: OrdersService, private router: Router) {}
-
   handleSubmit(item: Order) {
     Swal.fire({
       title: 'Add Order?',

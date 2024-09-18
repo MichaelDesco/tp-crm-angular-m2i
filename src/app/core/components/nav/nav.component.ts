@@ -24,10 +24,15 @@ export class NavComponent {
       cancelButtonText: 'No, Thanks',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp',
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         this.versionService.incrementVersion();
-        Swal.fire('Version Upgraded!', '', 'success');
       }
     });
   }

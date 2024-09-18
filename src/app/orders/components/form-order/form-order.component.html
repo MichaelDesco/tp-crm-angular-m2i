@@ -7,25 +7,19 @@
       class="form-control"
       id="typePresta"
     />
-    <div
-      class="alert alert-danger"
-      *ngIf="
-        form.controls['typePresta'].invalid &&
-        form.controls['typePresta'].touched
-      "
-    >
-      Champ invalide
-    </div>
+    @if (form.controls['typePresta'].invalid &&
+    form.controls['typePresta'].touched) {
+    <div class="alert alert-danger">Champ invalide.</div>
+    }
   </div>
 
   <div class="form-group">
     <label for="client">client</label>
-    <input
-      formControlName="client"
-      type="text"
-      class="form-control"
-      id="client"
-    />
+    <select class="form-control" formControlName="client" id="client">
+      <option *ngFor="let client of clients" [value]="client.name">
+        {{ client.name }}
+      </option>
+    </select>
     @if (form.controls['client'].invalid && form.controls['client'].touched) {
     <div class="alert alert-danger">Champ invalide.</div>
     }

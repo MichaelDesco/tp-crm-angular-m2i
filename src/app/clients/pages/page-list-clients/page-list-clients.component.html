@@ -3,7 +3,8 @@
   *ngIf="collection$ | async as collection"
 >
   <app-table-light [headers]="headers">
-    <tr *ngFor="let item of collection" [attr.id]="'order-' + item.id">
+    @for (item of collection; track item.id){
+    <tr [attr.id]="'client-' + item.id">
       <td>
         <app-icon-edit
           [routerLink]="['/clients/edit', item.id]"
@@ -16,16 +17,17 @@
       <td>{{ item.comment }}</td>
       <td [appState]="item.state">
         <select (change)="changeStatus(item, $event)">
-          <option
-            *ngFor="let state of status"
-            [selected]="state === item.state"
-            [value]="state"
-          >
+          @for (state of status; track state) {
+          <option [selected]="state === item.state" [value]="state">
             {{ state }}
           </option>
+          }
         </select>
       </td>
     </tr>
+    } @empty{
+    <div>List is empty</div>
+    }
   </app-table-light>
   <app-btn label="Add client" route="add"></app-btn>
 </app-template-full-width>

@@ -1,13 +1,16 @@
 import {
   Component,
   EventEmitter,
+  inject,
   Input,
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { StatusOrder } from '../../../core/enums/status-order.enum';
-import { Order } from '../../../core/models/order';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientsService } from '../../../clients/services/clients.service';
+import { StatusOrder } from '../../../core/enums/status-order.enum';
+import { Client } from '../../../core/models/client';
+import { Order } from '../../../core/models/order';
 
 @Component({
   selector: 'app-form-order',
@@ -20,13 +23,24 @@ export class FormOrderComponent {
   @Output() submitted = new EventEmitter<Order>();
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  clients: Client[] = []; // Liste des clients
+
+  private clientsService: ClientsService = inject(ClientsService);
+  private fb: FormBuilder = inject(FormBuilder);
 
   // Utiliser ngOnChanges pour détecter les changements dans @Input()
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['init'] && changes['init'].currentValue) {
       this.initializeForm(changes['init'].currentValue); // Initialiser le formulaire avec les nouvelles données
     }
+  }
+
+  ngOnInit(): void {
+    // Récupérer la liste des clients via le service lors de l'initialisation
+    this.clientsService.getClients().subscribe((clients) => {
+      this.clients = clients;
+      console.log(this.clients);
+    });
   }
 
   // Méthode pour initialiser le formulaire avec des valeurs

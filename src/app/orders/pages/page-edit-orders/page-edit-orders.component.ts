@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OrdersService } from '../../services/orders.service';
 import { Order } from '../../../core/models/order';
+import { OrdersService } from '../../services/orders.service';
 
 @Component({
   selector: 'app-page-edit-orders',
@@ -12,11 +12,9 @@ export class PageEditOrdersComponent implements OnInit {
   title: string = 'Edit Order';
   item: Order = new Order();
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private ordersService: OrdersService
-  ) {}
+  private ordersService: OrdersService = inject(OrdersService);
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
     // Récupérer l'ID de l'URL

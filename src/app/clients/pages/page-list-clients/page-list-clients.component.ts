@@ -22,6 +22,7 @@ export class PageListClientsComponent {
     'Comment',
     'State',
   ];
+
   collection$!: Observable<Client[]>;
   status = Object.values(StatusClient);
 
