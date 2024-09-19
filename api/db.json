@@ -1,14 +1,14 @@
 {
   "orders": [
     {
-      "id": 1,
       "tjmHt": 1200,
       "nbJours": 20,
       "tva": 20,
       "state": "CONFIRMED",
-      "typePresta": "formation",
       "client": "Capgemini",
-      "comment": "Merci Cap pour les 24k"
+      "comment": "Merci Cap pour les 24k",
+      "typePresta": "formation",
+      "id": 1
     },
     {
       "id": 2,
@@ -95,7 +95,7 @@
       "nbJours": 4,
       "tva": 20,
       "state": "OPTION",
-      "client": "Macumba",
+      "client": "Modis",
       "comment": "inviter Francois pas damien",
       "typePresta": "Fiesta",
       "id": 10
@@ -103,12 +103,12 @@
   ],
   "clients": [
     {
-      "id": 1,
-      "name": "Capgemini",
       "totalCaHt": 24000,
       "tva": 20,
-      "state": "ACTIVE",
-      "comment": "Grand client fidèle"
+      "state": "INACTIVE",
+      "name": "Capgemini",
+      "comment": "Grand client fidèle",
+      "id": 1
     },
     {
       "id": 2,
@@ -157,14 +157,6 @@
       "name": "Altran",
       "totalCaHt": 14000,
       "comment": "Client avec de fortes demandes en formation"
-    },
-    {
-      "state": "ACTIVE",
-      "tva": 20,
-      "name": "UFOSecretService",
-      "totalCaHt": 500000,
-      "comment": "VIP PREMIUM OVNI",
-      "id": 8
     }
   ]
 }

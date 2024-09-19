@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Order } from '../../../core/models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -29,10 +30,31 @@ export class PageEditOrdersComponent implements OnInit {
   }
 
   handleSubmit(order: Order): void {
-    // Appeler la méthode update pour mettre à jour l'ordre
-    this.ordersService.update(order).subscribe(() => {
-      // Redirection vers la liste des commandes après la mise à jour
-      this.router.navigate(['/orders']);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      imageUrl: 'editOrder.jpeg', // chemin vers votre image
+      imageWidth: 300, // largeur de l'image
+      imageHeight: 300, // hauteur de l'image
+      imageAlt: 'Custom image', // texte alternatif pour l'image
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown', // Animation d'entrée
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp', // Animation de sortie
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Appeler la méthode update pour mettre à jour l'ordre
+        this.ordersService.update(order).subscribe(() => {
+          // Redirection vers la liste des commandes après la mise à jour
+          this.router.navigate(['/orders']);
+        });
+      }
     });
   }
 }
