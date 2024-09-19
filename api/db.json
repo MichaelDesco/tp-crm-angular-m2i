@@ -89,16 +89,6 @@
       "client": "Zabibu ETC",
       "comment": null,
       "id": 9
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 4,
-      "tva": 20,
-      "state": "OPTION",
-      "client": "Modis",
-      "comment": "inviter Francois pas damien",
-      "typePresta": "Fiesta",
-      "id": 10
     }
   ],
   "clients": [

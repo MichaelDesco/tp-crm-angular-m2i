@@ -15,6 +15,7 @@ import { Client } from '../../../core/models/client';
   templateUrl: './form-client.component.html',
   styleUrl: './form-client.component.scss',
 })
+
 export class FormClientComponent {
   status = Object.values(StatusClient);
   @Input() init!: Client;
@@ -23,18 +24,17 @@ export class FormClientComponent {
 
   private fb: FormBuilder = inject(FormBuilder);
 
-  // Utiliser ngOnChanges pour détecter les changements dans @Input()
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['init'] && changes['init'].currentValue) {
-      this.initializeForm(changes['init'].currentValue); // Initialiser le formulaire avec les nouvelles données
+      this.initializeForm(changes['init'].currentValue);
     }
   }
 
+  // je crée un formulaire avec les données initiales
   ngOnInit() {
     this.initializeForm(this.init);
   }
 
-  // Méthode pour initialiser le formulaire avec des valeurs
   initializeForm(client: Client) {
     this.form = this.fb.group({
       totalCaHt: [client.totalCaHt],

@@ -1,7 +1,5 @@
-<app-template-full-width
-  [title]="title"
-  *ngIf="collection$ | async as collection"
->
+<app-template-full-width [title]="title">
+  @if(collection$ | async; as collection){
   <app-table-light [headers]="headers">
     @for (item of collection; track item.id){
     <tr [attr.id]="'client-' + item.id">
@@ -30,4 +28,9 @@
     }
   </app-table-light>
   <app-btn label="Add client" route="add"></app-btn>
+  } @else{
+  <app-template-full-width>
+    <div>loading clients...</div>
+  </app-template-full-width>
+  }
 </app-template-full-width>
