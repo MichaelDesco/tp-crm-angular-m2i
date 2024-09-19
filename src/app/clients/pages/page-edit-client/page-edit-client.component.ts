@@ -18,11 +18,9 @@ export class PageEditClientComponent implements OnInit {
   private route: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    // Récupérer l'ID de l'URL
-    const id = Number(this.route.snapshot.paramMap.get('id')); // Récupérer l'id de l'URL
+    const id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (id) {
-      // Récupérer la commande depuis l'API
       this.clientsService.getClientById(id).subscribe((client) => {
         this.item = client; // Injecter les données dans l'objet item
       });
@@ -32,25 +30,23 @@ export class PageEditClientComponent implements OnInit {
   handleSubmit(client: Client): void {
     Swal.fire({
       title: 'Are you sure?',
-      imageUrl: 'editClient.jpeg', // chemin vers votre image
-      imageWidth: 300, // largeur de l'image
-      imageHeight: 300, // hauteur de l'image
-      imageAlt: 'Custom image', // texte alternatif pour l'image
+      imageUrl: 'editClient.jpeg',
+      imageWidth: 300,
+      imageHeight: 300,
+      imageAlt: 'Custom image',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, update!',
       showClass: {
-        popup: 'animate__animated animate__fadeInDown', // Animation d'entrée
+        popup: 'animate__animated animate__fadeInDown',
       },
       hideClass: {
-        popup: 'animate__animated animate__fadeOutUp', // Animation de sortie
+        popup: 'animate__animated animate__fadeOutUp',
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        // Appeler la méthode update pour mettre à jour l'ordre
         this.clientsService.update(client).subscribe(() => {
-          // Redirection vers la liste des commandes après la mise à jour
           this.router.navigate(['/clients']);
         });
       }

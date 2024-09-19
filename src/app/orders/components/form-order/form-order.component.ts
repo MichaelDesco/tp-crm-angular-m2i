@@ -37,7 +37,7 @@ export class FormOrderComponent {
 
   ngOnInit(): void {
     // Récupérer la liste des clients via le service lors de l'initialisation
-    this.clientsService.getClients().subscribe((clients) => {
+    this.clientsService.collection.subscribe((clients) => {
       this.clients = clients;
       console.log(this.clients);
     });

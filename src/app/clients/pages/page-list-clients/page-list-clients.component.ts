@@ -63,7 +63,6 @@ export class PageListClientsComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.clientsService.delete(item).subscribe(() => {
-          // Rafraîchir la collection après suppression
           this.collection$ = this.clientsService.collection;
           const element = document.getElementById(`client-${item.id}`);
           if (element) {

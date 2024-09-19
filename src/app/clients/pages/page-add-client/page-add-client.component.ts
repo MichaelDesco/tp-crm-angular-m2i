@@ -36,7 +36,6 @@ export class PageAddClientComponent {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si l'utilisateur confirme, on ajoute l'ordre dans la base de données
         this.clientsService.add(item).subscribe({
           complete: () => {
             this.router.navigate(['/clients']);

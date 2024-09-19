@@ -28,10 +28,6 @@ export class ClientsService {
     this.collection$ = col;
   }
 
-  public getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(`${this.urlApi}/clients`);
-  }
-
   public add(item: Client): Observable<Client> {
     return this.http.post<Client>(`${this.urlApi}/clients`, item);
   }
