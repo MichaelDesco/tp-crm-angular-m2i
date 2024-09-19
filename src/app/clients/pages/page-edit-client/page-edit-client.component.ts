@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Client } from '../../../core/models/client';
 import { ClientsService } from '../../services/clients.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-page-edit-client',
@@ -32,7 +32,6 @@ export class PageEditClientComponent implements OnInit {
   handleSubmit(client: Client): void {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
       imageUrl: 'editClient.jpeg', // chemin vers votre image
       imageWidth: 300, // largeur de l'image
       imageHeight: 300, // hauteur de l'image
@@ -40,7 +39,7 @@ export class PageEditClientComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, update!',
       showClass: {
         popup: 'animate__animated animate__fadeInDown', // Animation d'entrée
       },

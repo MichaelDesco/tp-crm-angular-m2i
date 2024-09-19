@@ -32,7 +32,6 @@ export class PageEditOrdersComponent implements OnInit {
   handleSubmit(order: Order): void {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
       imageUrl: 'editOrder.jpeg', // chemin vers votre image
       imageWidth: 300, // largeur de l'image
       imageHeight: 300, // hauteur de l'image
@@ -40,7 +39,7 @@ export class PageEditOrdersComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, update!',
       showClass: {
         popup: 'animate__animated animate__fadeInDown', // Animation d'entrée
       },
