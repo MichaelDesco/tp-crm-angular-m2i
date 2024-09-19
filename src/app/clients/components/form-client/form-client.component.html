@@ -1,49 +1,25 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-group">
-    <label for="typePresta">type</label>
+    <label for="name">Nom</label>
     <input
-      formControlName="typePresta"
+      formControlName="name"
       type="text"
       class="form-control"
-      id="typePresta"
+      id="name"
     />
-    @if (form.controls['typePresta'].invalid &&
-    form.controls['typePresta'].touched) {
+    @if (form.controls['name'].invalid &&
+    form.controls['name'].touched) {
     <div class="alert alert-danger">Champ invalide.</div>
     }
   </div>
 
   <div class="form-group">
-    <label for="client">client</label>
-    <select class="form-control" formControlName="client" id="client">
-      @for (client of clients; track client.name) {
-      <option [value]="client.name">
-        {{ client.name }}
-      </option>
-      }
-    </select>
-    @if (form.controls['client'].invalid && form.controls['client'].touched) {
-    <div class="alert alert-danger">Champ invalide.</div>
-    }
-  </div>
-
-  <div class="form-group">
-    <label for="nbJours">nbJours</label>
+    <label for="totalCaHt">totalCaHt</label>
     <input
-      formControlName="nbJours"
-      type="number"
+      formControlName="totalCaHt"
+      type="text"
       class="form-control"
-      id="nbJours"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="tjmHt">tjmHt</label>
-    <input
-      formControlName="tjmHt"
-      type="number"
-      class="form-control"
-      id="tjmHt"
+      id="totalCaHt"
     />
   </div>
 

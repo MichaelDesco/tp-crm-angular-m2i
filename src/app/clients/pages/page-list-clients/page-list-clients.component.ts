@@ -11,7 +11,7 @@ import { ClientsService } from '../../services/clients.service';
 export class PageListClientsComponent {
   title: string = 'Clients List';
 
-  headers: string[] = ['Name', 'TotalCaHt', 'Tva', 'Comment', 'State'];
+  headers: string[] = ['Action','Name', 'TotalCaHt', 'Tva', 'Comment', 'State'];
   collection!: Client[];
   status = Object.values(StatusClient);
 

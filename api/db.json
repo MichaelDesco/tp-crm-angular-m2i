@@ -109,6 +109,16 @@
       "comment": null,
       "typePresta": "formation",
       "id": 11
+    },
+    {
+      "id": 12,
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "CONFIRMED",
+      "typePresta": "formation",
+      "client": "Capgemini",
+      "comment": null
     }
   ],
   "clients": [
@@ -175,6 +185,30 @@
       "totalCaHt": 500000,
       "comment": "VIP PREMIUM OVNI",
       "id": 8
+    },
+    {
+      "name": "zefzfee",
+      "totalCaHt": 0,
+      "tva": 20,
+      "comment": null,
+      "state": "INACTIVE",
+      "id": 9
+    },
+    {
+      "name": "Autopromo",
+      "totalCaHt": 0,
+      "tva": 20,
+      "comment": null,
+      "state": "INACTIVE",
+      "id": 10
+    },
+    {
+      "name": "sylver",
+      "totalCaHt": 0,
+      "tva": 20,
+      "comment": null,
+      "state": "INACTIVE",
+      "id": 11
     }
   ]
 }

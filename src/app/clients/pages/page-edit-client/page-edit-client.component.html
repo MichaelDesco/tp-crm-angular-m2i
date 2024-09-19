@@ -1,1 +1,7 @@
-<p>page-edit-client works!</p>
+<app-template-container title="Modification client">
+ <app-form-client
+     [init]="item"
+    (submitted)="handleSubmit($event)"
+  >
+</app-form-client>
+</app-template-container>
